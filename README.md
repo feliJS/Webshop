@@ -29,8 +29,17 @@ project
 The view.js will import the main view functions from each js-file. Then display the correct one by listening to the nav-buttons "click" event. 
 
 ## product.js
-Product.js has the main view of all the products and also the functions to add in all the products.
+product.js has the main view of all the products and also the functions to add in all the products.
+<br><br>
 <strong>
-    CreateBoxes
-</strong>
-- This function will create all the boxes needed, depending on what products looks like.
+    createBoxes()
+</strong> - this function will create all the boxes needed, depending on what products looks like.
+
+## cart.js
+cart.js will save and load the cart, but also display and add the items.
+<br><br>
+<strong>loadCart()</strong> - this function will load all items in localstorage
+<br>
+<strong>save(cart)</strong> - this item will save down the current cart 
+<br>
+<strong>addToCart()</strong> - a function that is used in products.js when you click the button "add to cart". This function is exported to products.js since the loop of all displayed boxes will be in there.

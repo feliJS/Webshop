@@ -9,3 +9,21 @@ export function viewCart(){
     `
 
 }
+
+function loadCart() {
+    let items = JSON.parse(localStorage.getItem("cart")) || [];
+    return items
+}
+
+function save(cart) {
+    let cartJSON = JSON.stringify(cart);
+    localStorage.setItem("cart", cartJSON);
+}
+
+export function addToCart(item) {
+    let currentCart = loadCart()
+    currentCart.push(item)
+    save(currentCart)
+}
+
+

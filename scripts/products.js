@@ -1,4 +1,5 @@
 import {products} from "/scripts/common.js"
+import { addToCart } from "/scripts/cart.js"
 
 export function viewProducts(){
     //innerhtml that will change the content inside <main>
@@ -27,15 +28,20 @@ function createBoxes() {
         let productPrice = document.createElement("p")
         productPrice.textContent = product.price
 
-        let addToCart = document.createElement("button")
-        addToCart.textContent = "Add to cart"
+        let addToCartBtn = document.createElement("button")
+        addToCartBtn.textContent = "Add to cart"
+
+        addToCartBtn.addEventListener("click", function() {
+            addToCart(product) //exported from cart.js
+        })
 
         productDiv.appendChild(productBox)
         productBox.appendChild(productEmoji)
         productBox.appendChild(productNameP)
         productBox.appendChild(productPrice)
-        productBox.appendChild(addToCart)
+        productBox.appendChild(addToCartBtn)
         
     }
 
 }
+
