@@ -5,7 +5,7 @@ export function viewProducts(){
     //innerhtml that will change the content inside <main>
     document.querySelector("main").innerHTML = 
     `
-    <h2> My products <h2>
+    <h2> My products </h2>
         <div id="product-list">
         </div>
     `
@@ -17,7 +17,6 @@ function createBoxes() {
     const productDiv = document.querySelector("#product-list")
     for (const product of products) {
         let productBox = document.createElement("div")
-        productBox.style.backgroundColor = "aqua"; 
 
         let productEmoji = document.createElement("p")
         productEmoji.textContent = product.emoji

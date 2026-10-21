@@ -1,0 +1,84 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    padding: 0 1rem;
+    background-color: rgb(201, 230, 230);
+
+}
+
+#product-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+#product-list div{
+    background-color: aliceblue;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    
+}
+
+#product-list div p{
+    margin: 0;
+}
+
+/*:nth-child, etc is gonna point at the different children
+in the div parent, i could've used classes aswell, but for 
+now this works as a quicker solution
+*/
+
+#product-list div p:first-child{ /*Emoji*/
+    font-size: 40px;
+}
+#product-list div p:nth-child(2){ /*Name*/
+    font-size: 24px;
+}
+#product-list div p:first-child(3){ /*price*/
+    font-size: 16px;
+}
+
+#product-list div button{
+    all: unset;
+    color: white;
+    background-color: rgb(55, 96, 134);
+    padding: 1rem 1rem;
+    text-align: center;
+    width: 80%;
+    box-sizing: border-box;
+    cursor:pointer
+}
+
+#product-list div:hover{
+    border: 1px solid rgb(55, 96, 134);
+    
+}
+
+
+
+footer{
+    padding: 0 0.5rem;
+}
+
+@media (min-width: 900px) {
+    #product-list{
+        
+        grid-template-columns: repeat(4, 1fr);
+        
+    }
+}
