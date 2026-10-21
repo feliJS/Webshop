@@ -25,5 +25,12 @@ project
 <strong>view.js</strong> - works as the "router", the file that switches around the views.
 
 
-## View.js
+## view.js
 The view.js will import the main view functions from each js-file. Then display the correct one by listening to the nav-buttons "click" event. 
+
+## product.js
+Product.js has the main view of all the products and also the functions to add in all the products.
+<strong>
+    CreateBoxes
+</strong>
+- This function will create all the boxes needed, depending on what products looks like.
