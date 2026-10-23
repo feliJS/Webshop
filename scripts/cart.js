@@ -26,8 +26,15 @@ function save(cart) {
 }
 
 export function addToCart(item) {
+    
     let currentCart = loadCart()
-    currentCart.push(item)
+    let existingItem = currentCart.find((itemObj)=>{return itemObj.id == item.id}) //finds exsisting item by checking the loaded array
+    if(existingItem){
+        existingItem.quantity++;
+    } else {
+        item.quantity = 1;
+        currentCart.push(item)
+    }
     save(currentCart)
 }
 
@@ -44,8 +51,17 @@ function currentCart() {
         itemBox.appendChild(itemName)
 
         let itemPrice = document.createElement("p")
-        itemPrice.textContent = item.price + " kr"
+        itemPrice.textContent = item.price + " kr each"
         itemBox.appendChild(itemPrice)
+
+        let qtyElement = document.createElement("p")
+        qtyElement.textContent = "Qty: " + item.quantity
+        itemBox.appendChild(qtyElement)
+
+        let qtyPrice = document.createElement("p")
+        qtyPrice.textContent = item.quantity * item.price
+        itemBox.appendChild(qtyPrice)
+
         
     }
 }
@@ -58,6 +74,6 @@ function sumCart(){
     }
     let totalSumBox = document.querySelector("aside")
     let totalSumText = document.createElement("p")
-    totalSumText.textContent = totalSum
+    totalSumText.textContent = `Summary: ${totalSum}`
     totalSumBox.appendChild(totalSumText)
 }
