@@ -52,11 +52,12 @@ function removeFromCart(item) {
 function currentCart() {
     let currentCart = loadCart()
     document.querySelector("#cart-list").innerHTML = ""
+    if(currentCart.length == 0){
+        document.querySelector("#cart-list").innerHTML = "Nothing added yet!"
+    }
     for (const item of currentCart) {
-
         let itemBox = document.createElement("li")
         document.querySelector("#cart-list").appendChild(itemBox)
-
 
         let itemName = document.createElement("h2")
         itemName.textContent = item.name
