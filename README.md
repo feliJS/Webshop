@@ -42,4 +42,4 @@ cart.js will save and load the cart, but also display and add the items.
 <br>
 <strong>save(cart)</strong> - this item will save down the current cart 
 <br>
-<strong>addToCart()</strong> - a function that is used in products.js when you click the button "add to cart". This function is exported to products.js since the loop of all displayed boxes will be in there.
+<strong>addToCart()</strong> - a function that is used in products.js when you click the button "add to cart". This function is exported to products.js since the loop of all displayed boxes will be in there. Also added a way to check exsistingItem to be able to write out a quantity of the item. 

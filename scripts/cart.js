@@ -38,13 +38,25 @@ export function addToCart(item) {
     save(currentCart)
 }
 
+function removeFromCart(item) {
+    let currentlyCart = loadCart()
+    let indexOfItem = currentlyCart.findIndex((itemObj)=>{return itemObj.id == item.id})
+    if(indexOfItem != -1){
+        currentlyCart.splice(indexOfItem, 1)
+    }
+    save(currentlyCart)
+    currentCart()
+}   
+
 
 function currentCart() {
     let currentCart = loadCart()
+    document.querySelector("#cart-list").innerHTML = ""
     for (const item of currentCart) {
 
         let itemBox = document.createElement("li")
         document.querySelector("#cart-list").appendChild(itemBox)
+
 
         let itemName = document.createElement("h2")
         itemName.textContent = item.name
@@ -61,6 +73,13 @@ function currentCart() {
         let qtyPrice = document.createElement("p")
         qtyPrice.textContent = item.quantity * item.price
         itemBox.appendChild(qtyPrice)
+
+        let removeItem = document.createElement("button")
+        removeItem.textContent = "X"
+        removeItem.addEventListener("click", function () {
+            removeFromCart(item)
+        })
+        itemBox.appendChild(removeItem)
 
         
     }
